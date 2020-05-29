@@ -22,10 +22,10 @@ model = TextClassifier(list_of_strings,
 ```
 ### Classification
 
-A model returns scores for each class, compatible with the Python max() and sorted() functions.
+model.classify() returns a list of scores corresponding to each class, compatible with the Python max() and sorted() operations based on score.
 
 ```
-predictions = model.classify()
+predictions = model.classify(unclassified_text)
 result = max(predictions)
 print([result.label, result.score])
 ```
