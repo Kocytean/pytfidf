@@ -41,6 +41,6 @@ $env:FLASK_APP='server.py'
 flask run
 
 Ubuntu:
-export VARNAME="my value"
+export VARNAME="server.py"
 flask run
 ```
