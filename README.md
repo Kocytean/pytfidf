@@ -41,7 +41,7 @@ PowerShell:
 $env:FLASK_APP='server.py'
 flask run
 ```
-Ubuntu:
+Bash:
 ```
 export VARNAME="server.py"
 flask run
