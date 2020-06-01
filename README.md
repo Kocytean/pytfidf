@@ -4,7 +4,7 @@ Pure Python TF-IDF text classifier
 
 ## Prerequisites
 
-No prerequisites, though the testbenches use PyMuPDF for text extraction from sample docs.
+The testbenches use PyMuPDF for text extraction from sample docs and a basic Flask server has been provided, but the tfidf_base module has no prerequisites. 
 
 ## Usage
 
@@ -29,3 +29,18 @@ predictions = model.classify(unclassified_text)
 result = max(predictions)
 print([result.label, result.score])
 ```
+## Service
+
+Implementation for a basic local Flask server and client communicating on port 5000 has been included.
+
+### Setup
+
+'''
+PowerShell:
+$env:FLASK_APP='server.py'
+flask run
+
+Ubuntu:
+export VARNAME="my value"
+flask run
+'''
