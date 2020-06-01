@@ -31,16 +31,18 @@ print([result.label, result.score])
 ```
 ## Service
 
-Implementation for a basic local Flask server and client communicating on port 5000 has been included.
+Implementation for a basic local Flask server for processing a PDF document and an HTML client communicating on port 5000 has been included.
 
 ### Setup
 
-```
+
 PowerShell:
+```
 $env:FLASK_APP='server.py'
 flask run
-
+```
 Ubuntu:
+```
 export VARNAME="server.py"
 flask run
 ```
