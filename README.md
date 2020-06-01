@@ -35,7 +35,7 @@ Implementation for a basic local Flask server and client communicating on port 5
 
 ### Setup
 
-'''
+```
 PowerShell:
 $env:FLASK_APP='server.py'
 flask run
@@ -43,4 +43,4 @@ flask run
 Ubuntu:
 export VARNAME="my value"
 flask run
-'''
+```
