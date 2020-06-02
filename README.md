@@ -4,7 +4,7 @@ Pure Python TF-IDF text classifier
 
 ## Prerequisites
 
-The testbenches use PyMuPDF for text extraction from sample docs and a basic Flask server has been provided, but the tfidf_base module has no prerequisites. 
+The testbenches use PyMuPDF for text extraction from sample docs and a basic Flask server has been provided, but the tfidf_base module requires only Python 3.7. 
 
 ## Usage
 
