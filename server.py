@@ -26,7 +26,7 @@ allowed_extensions = ['pdf']
 def allowed_file(filename):
 	return '. in filename' and filename.split('.')[-1] in allowed_extensions
 
-@app.route('/classify', methods = ['get', 'post'])
+@app.route('/classify', methods = ['GET', 'POST'])
 def classify():
 	if request.method == 'POST':
 		if 'pdf-file' not in request.files:
