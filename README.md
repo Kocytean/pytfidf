@@ -1,48 +1,15 @@
-# tfidf_base
+# BERT for document classification
 
 Pure Python TF-IDF text classifier
 
 ## Prerequisites
 
-The testbenches use PyMuPDF for text extraction from sample docs and a basic Flask server has been provided, but the tfidf_base module requires only Python 3.7. 
+torch, pandas, configargparse, sklearn
 
 ## Usage
 
-### Instantiation
+Navigate to /examples/ and edit the config file newstest_test.ini for values: batch size, bert batch size, epochs, CUDA device ID, checkpoint interval, eval interval (still have to automate that). 
 
-A model is instantiated by feeding a list of documents as strings with a corresponding list of (non-unique) class labels. Optionally, you can provide a length for TF-IDF vectors as well as upper and lower bounds on lengths of words which helps with garbage text often encountered on mass extracting text from PDF sources.
+Remove the 'cuda' and make it 'device cpu' if you want to run on CPU locally.
 
-```
-from tfidf_base import TextClassifier
-model = TextClassifier(list_of_strings,
-        list_of_labels,
-        vectorSize =1000,
-        minWordSize = 5,
-        maxWordSize = 25)
-```
-### Classification
-
-model.classify() returns a list of scores corresponding to each class, compatible with the Python max() and sorted() operations based on score.
-
-```
-predictions = model.classify(unclassified_text)
-result = max(predictions)
-print([result.label, result.score])
-```
-## Service
-
-Implementation for a basic local Flask server for processing a PDF document and an HTML client communicating on port 5000 has been included.
-
-### Setup
-
-
-PowerShell:
-```
-$env:FLASK_APP='server.py'
-flask run
-```
-Bash:
-```
-export VARNAME="server.py"
-flask run
-```
+Run train_test.py. Before running predict_test.py you will need to change the name of the folder (line 15) to the correct directory in the results folder which contains the checkpoint saved after training is done (still need to automate that, folder name is currently dependent on epoch no).
