@@ -1,15 +1,31 @@
-# BERT for document classification
+# Project Title
 
 Pure Python TF-IDF text classifier
 
 ## Prerequisites
 
-torch, pandas, configargparse, sklearn
+No prerequisites, though the testbenches use PyMuPDF for text extraction from sample docs.
 
 ## Usage
 
-Navigate to /examples/ and edit the config file newstest_test.ini for values: batch size, bert batch size, epochs, CUDA device ID, checkpoint interval, eval interval (still have to automate that). 
+### Instantiation
 
-Remove the 'cuda' and make it 'device cpu' if you want to run on CPU locally.
+A model is instantiated by feeding a list of documents as strings with a corresponding list of (non-unique) class labels. Optionally, you can provide a length for TF-IDF vectors as well as upper and lower bounds on lengths of words which helps with garbage text often encountered on mass extracting text from PDF sources.
 
-Run train_test.py. Before running predict_test.py you will need to change the name of the folder (line 15) to the correct directory in the results folder which contains the checkpoint saved after training is done (still need to automate that, folder name is currently dependent on epoch no).
+```
+from tfidf_base import TextClassifier
+model = TextClassifier(list_of_strings,
+        list_of_labels,
+        vectorSize =1000,
+        minWordSize = 5,
+        maxWordSize = 25)
+```
+### Classification
+
+A model returns scores for each class, compatible with the Python max() and sorted() functions.
+
+```
+predictions = model.classify()
+result = max(predictions)
+print([result.label, result.score])
+```
