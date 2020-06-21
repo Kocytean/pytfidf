@@ -1,5 +1,4 @@
-# Project Title
-
+# PyTF-IDF
 Pure Python TF-IDF text classifier
 
 ## Prerequisites
